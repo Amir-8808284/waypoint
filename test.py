@@ -1,3 +1,4 @@
+# Week 7 - Waypoint Domain Model Tests
 from waypoint_core.distance import Distance
 from waypoint_core.trail import Trail
 from waypoint_core.itinerary import Itinerary
