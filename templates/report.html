@@ -1,41 +1,35 @@
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Report a Trail</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
+{% block title %}Report a Trail - Waypoint{% endblock %}
 
-    <h1>Report a Trail</h1>
+{% block content %}
 
-    <form method="post">
-        {% csrf_token %}
+<h1>Report a Trail</h1>
 
-        <p>
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name">
-        </p>
+<form method="post">
+    {% csrf_token %}
 
-        <p>
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email">
-        </p>
+    <p>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name">
+    </p>
 
-        <p>
-            <label for="trail">Trail:</label><br>
-            <input type="text" id="trail" name="trail">
-        </p>
+    <p>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email">
+    </p>
 
-        <p>
-            <label for="note">Note:</label><br>
-            <textarea id="note" name="note"></textarea>
-        </p>
+    <p>
+        <label for="trail">Trail:</label><br>
+        <input type="text" id="trail" name="trail">
+    </p>
 
-        <button type="submit">Submit Report</button>
-    </form>
+    <p>
+        <label for="note">Note:</label><br>
+        <textarea id="note" name="note"></textarea>
+    </p>
 
-</body>
-</html>
+    <button type="submit">Submit Report</button>
+</form>
+
+{% endblock %}
