@@ -1,22 +1,67 @@
-"""
-URL configuration for waypoint project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
+from django.shortcuts import render
 
+
+# Displays the home page
+def home(request):
+    context = {
+        "greeting": "Welcome to Waypoint"
+    }
+
+    return render(
+        request,
+        "home.html",
+        context
+    )
+
+
+# Displays the report form and processes submitted reports
+def report(request):
+    if request.method == "POST":
+        name = request.POST.get("name", "")
+        email = request.POST.get("email", "")
+        trail = request.POST.get("trail", "")
+        note = request.POST.get("note", "")
+
+        context = {
+            "name": name,
+            "email": email,
+            "trail": trail,
+            "note": note,
+        }
+
+        return render(
+            request,
+            "thank_you.html",
+            context
+        )
+
+    return render(
+        request,
+        "report.html"
+    )
+
+
+# Displays the trail search page
+def search(request):
+    query = request.GET.get("q", "")
+
+    context = {
+        "query": query
+    }
+
+    return render(
+        request,
+        "search.html",
+        context
+    )
+
+
+# Maps URLs to their views
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+    path("", home, name="home"),
+    path("report/", report, name="report"),
+    path("search/", search, name="search"),
 ]
