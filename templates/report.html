@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report a Trail</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <h1>Report a Trail</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <p>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name">
+        </p>
+
+        <p>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email">
+        </p>
+
+        <p>
+            <label for="trail">Trail:</label><br>
+            <input type="text" id="trail" name="trail">
+        </p>
+
+        <p>
+            <label for="note">Note:</label><br>
+            <textarea id="note" name="note"></textarea>
+        </p>
+
+        <button type="submit">Submit Report</button>
+    </form>
+
+</body>
+</html>
