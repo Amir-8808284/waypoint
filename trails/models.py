@@ -1,6 +1,19 @@
 from django.db import models
 
 
+class Park(models.Model):
+    name = models.CharField(
+        max_length=100
+    )
+
+    region = models.CharField(
+        max_length=100
+    )
+
+    def __str__(self):
+        return self.name
+
+
 class Trail(models.Model):
 
     DIFFICULTY_CHOICES = [
@@ -32,6 +45,13 @@ class Trail(models.Model):
 
     added = models.DateTimeField(
         auto_now_add=True
+    )
+
+    park = models.ForeignKey(
+        Park,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
     )
 
     def __str__(self):
