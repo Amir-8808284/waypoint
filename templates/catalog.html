@@ -13,7 +13,7 @@
             <th>Name</th>
             <th>Distance (km)</th>
             <th>Elevation (m)</th>
-            <th>Status / Difficulty</th>
+            <th>Difficulty</th>
         </tr>
     </thead>
 
@@ -21,22 +21,14 @@
         {% for trail in trails %}
         <tr>
             <td>{{ forloop.counter }}</td>
-
             <td>{{ trail.name }}</td>
-
-            <td>{{ trail.distance|floatformat:1 }}</td>
-
-            <td>{{ trail.elevation }}</td>
-
-            <td>
-                {% if not trail.is_open %}
-                    CLOSED
-                {% elif trail.difficulty == "expert" %}
-                    HARD
-                {% else %}
-                    {{ trail.difficulty }}
-                {% endif %}
-            </td>
+            <td>{{ trail.distance_km|floatformat:1 }}</td>
+            <td>{{ trail.elevation_gain }}</td>
+            <td>{{ trail.difficulty }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No open trails available.</td>
         </tr>
         {% endfor %}
     </tbody>
