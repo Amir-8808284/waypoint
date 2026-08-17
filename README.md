@@ -91,7 +91,7 @@ Open the Django Admin:
 
 ```text
 http://127.0.0.1:8000/admin/
-
+```
 
 ## Screenshots
 
@@ -102,4 +102,3 @@ http://127.0.0.1:8000/admin/
 ### Django Admin
 
 ![Django Admin](screenshots/admin.png)
-```
