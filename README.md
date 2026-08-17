@@ -91,4 +91,15 @@ Open the Django Admin:
 
 ```text
 http://127.0.0.1:8000/admin/
+
+
+## Screenshots
+
+### Trail Catalog
+
+![Trail Catalog](screenshots/catalog.png)
+
+### Django Admin
+
+![Django Admin](screenshots/admin.png)
 ```
